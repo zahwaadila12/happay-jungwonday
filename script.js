@@ -1,9 +1,13 @@
-const API_URL = "YOUR_API_URL_HERE";
+const API_URL = "https://script.google.com/macros/s/AKfycbwe4cJqmGZoUaYbIpdmUQAG5pgDoNQoYTUjH5nqLIVkl_NNHL08E1ChN4CRWbTsm2bXZg/exec";
+
+const cardsContainer = document.getElementById("cards");
+
+cardsContainer.innerHTML = "<p style='text-align:center;'>Loading messages... 💌</p>";
 
 fetch(API_URL)
   .then(res => res.json())
   .then(data => {
-    const cards = document.getElementById("cards");
+    cardsContainer.innerHTML = "";
 
     data.reverse().forEach(item => {
       const card = document.createElement("div");
@@ -14,9 +18,10 @@ fetch(API_URL)
         <p>${item.pesan}</p>
       `;
 
-      cards.appendChild(card);
+      cardsContainer.appendChild(card);
     });
   })
   .catch(err => {
-    console.error("Gagal mengambil data", err);
+    console.error(err);
+    cardsContainer.innerHTML = "<p style='text-align:center;color:red;'>Failed to load messages</p>";
   });
