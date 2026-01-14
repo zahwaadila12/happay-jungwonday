@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbwe4cJqmGZoUaYbIpdmUQAG5pgDoNQoYTUjH5nqLIVkl_NNHL08E1ChN4CRWbTsm2bXZg/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbzjTx245mgLqxGe5YrbOa52vmV72QVx7uA8tmY3tGwmRsuya2QrZtrJSfWUyEIuWND5Ow/exec";
 
 const cardsContainer = document.getElementById("cards");
 
@@ -25,3 +25,4 @@ fetch(API_URL)
     console.error(err);
     cardsContainer.innerHTML = "<p style='text-align:center;color:red;'>Failed to load messages</p>";
   });
+
